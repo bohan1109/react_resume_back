@@ -13,7 +13,7 @@ module.exports = {
           account: process.env.GUEST_ACCOUNT,
           name: process.env.GUEST_NAME,
           password: bcrypt.hashSync(process.env.GUEST_PASSWORD, 10),
-          email: process.env.EMAIL,
+          email: process.env.GUEST_EMAIL,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
