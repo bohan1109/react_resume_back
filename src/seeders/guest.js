@@ -1,4 +1,7 @@
 "use strict";
+const bcrypt = require("bcrypt");
+require("dotenv").config();
+
 
 // npx sequelize db:seed:all
 module.exports = {
@@ -7,10 +10,10 @@ module.exports = {
       "Users",
       [
         {
-          account: "guest",
-          name: "guest",
-          password: "guest",
-          email: "None",
+          account: process.env.GUEST_ACCOUNT,
+          name: process.env.GUEST_NAME,
+          password: bcrypt.hashSync(process.env.GUEST_PASSWORD, 10),
+          email: process.env.EMAIL,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
